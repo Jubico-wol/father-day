@@ -48,26 +48,26 @@
                                             </div>
 
                                             <div class="col-md-6 mb-3">
-                                                <input type="text" class="form-control" id="secondName" placeholder="APELLIDO*"  onkeyup="javascript:this.value=this.value.toUpperCase();">
+                                                <input type="text" class="form-control" id="secondName" placeholder="APELLIDO*"  name="lastname" onkeyup="javascript:this.value=this.value.toUpperCase();">
                                             </div>
 
                                             <div class="col-md-12 mb-3">
-                                                <input type="text" class="form-control" id="email" placeholder="CORREO ELECTRONICO*" name="mail" onkeyup="javascript:this.value=this.value.toUpperCase();">
+                                                <input type="text" class="form-control" id="email" placeholder="CORREO ELECTRONICO*" name="email" onkeyup="javascript:this.value=this.value.toUpperCase();">
                                             </div>
 
                                             <div class="col-md-12 mb-3">
-                                                <input type="text" class="form-control" id="cui" placeholder="No. IDENTIFICACION*" onkeyup="javascript:this.value=this.value.toUpperCase();"
+                                                <input type="text" class="form-control" id="cui" name="cui" placeholder="No. IDENTIFICACION*" onkeyup="javascript:this.value=this.value.toUpperCase();"
                                                 onKeypress="if(event.charCode >= 48 && event.charCode <= 57 || event.charCode >= 97 && event.charCode <= 122){return true;}return false;"/>
                                             </div>
 
                                             <div class="col-md-12 mb-3">
-                                                <input type="number" class="form-control" id="phone" placeholder="TELEFONO*" 
+                                                <input type="number" class="form-control" id="phone" placeholder="TELEFONO*" name="phone"
                                                 onKeypress="if(event.charCode >= 48 && event.charCode <= 57){return true;}return false;"/>
                                             </div>
                                         </div>
             
                                         <div class="form-check">
-                                            <input class="form-check-input messageCheckbox" type="checkbox" id="check">
+                                            <input class="form-check-input messageCheckbox" type="checkbox" id="check" name="terms">
                                             <label class="form-check-label white" for="flexCheckDefault" >
                                                 <span class="white"> ACEPTO TERMINOS Y CONDICIONES </span>
                                             </label>
@@ -108,7 +108,7 @@
                                             <!-- <input type="file" class="form-control" placeholder="Subir foto"> -->
                                             <div class="image-input">
                                                <div class="img-box">
-                                                <input type="file" accept="image/*" id="imageInput">
+                                                <input type="file" accept="image/*" id="imageInput" name="fileToUpload">
                                                     <label for="imageInput" class="image-button pointer"></label>
                                                 <img src="" class="image-preview">
                                                </div>

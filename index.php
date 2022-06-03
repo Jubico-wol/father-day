@@ -13,8 +13,6 @@
     
     <section class="bg">
         <div class="capa">
-
-
         
             <nav class="navbar bg-nav">
                 <div class="container-fluid">
@@ -23,9 +21,6 @@
                     </div>
                 </div>
             </nav>
-
-
-
             <div class="container">
                 <div class="row">
                    <div class="flex">
@@ -47,10 +42,6 @@
                    </div>
                 </div>
             </div>
-
-
-
-
 
             <div class="container">
                 <div class="row">
