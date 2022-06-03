@@ -1,0 +1,70 @@
+
+.bg-nav {
+    background-color: #00000000!important;
+}
+.center{ text-align: center;     margin: 0 auto;}
+.white{color: white;}
+.img-100{ width: 100%;}
+.pointer{ cursor: pointer;}
+.bg{
+    background: url(./assets/textura.png);
+    background-repeat: repeat;
+    min-height: 100vh;
+    background-size: cover;
+    position: relative;
+}
+.flex{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    min-height: 65vh;
+  
+    margin-bottom: 50px;
+}
+.capa{
+    min-height: 100vh;
+    background: url(./assets/mancha.png);
+    background-color: #207f1e;
+    background-repeat: no-repeat;
+}
+
+.footer{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    padding: 10px;
+}
+.footer img{
+    width: 100%;
+    max-width: 800px;
+}
+
+.btn.btn-tona {
+    background-color: #e49a04 !important;
+    min-width: 200px;
+    border-radius: 25px;
+    color: white;
+    font-weight: 700;
+  }
+  
+
+
+
+
+
+
+  .pol{
+    background: #f0f8ff59;
+    color: white;
+    font-weight: 700;
+    border-radius: 25px;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+  }
+
+
+

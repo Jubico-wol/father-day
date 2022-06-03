@@ -1,0 +1,33 @@
+.capa2{
+    background: url(../assets/fondo.png);
+    background-position: bottom;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.img-100{max-width: 260px;}
+form{ padding: 15px;}
+.card{    
+    background: #f5f5f53d !important;
+    border-radius: 25px !important;
+    z-index: 1;
+    padding: 15%;
+}
+.footer{padding: inherit; z-index: 0;}
+.footer img {
+    width: 100%;
+    max-width: inherit;
+}
+.footer{
+    background: url(../assets/footer2.png);
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: bottom;
+}
+
+.flex {
+    min-height: 65vh;
+    margin-bottom: 9%;
+}
+
+.pointer{ cursor: pointer;}
