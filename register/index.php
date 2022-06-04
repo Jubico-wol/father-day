@@ -12,6 +12,7 @@
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
 <section class="bg">
@@ -38,17 +39,17 @@
                                 <br>
                                 <h3 class="white">REGISTRATE</h3>
                             
-                                <form class="form-margin" id="form" name="name" action="">
+                                <form class="form-margin" id="form" action="">
                                     <div class="center"> 
                                         
                                         <div class="row">
 
                                             <div class="col-md-6 mb-3">
-                                                <input type="text" class="form-control" id="name" placeholder="NOMBRE*" name="name"  onkeyup="javascript:this.value=this.value.toUpperCase();">
+                                                <input type="text" class="form-control" id="nombre" placeholder="NOMBRE*" name="nombre"  onkeyup="javascript:this.value=this.value.toUpperCase();">
                                             </div>
 
                                             <div class="col-md-6 mb-3">
-                                                <input type="text" class="form-control" id="secondName" placeholder="APELLIDO*"  name="lastname" onkeyup="javascript:this.value=this.value.toUpperCase();">
+                                                <input type="text" class="form-control" id="apellido" placeholder="APELLIDO*"  name="apellido" onkeyup="javascript:this.value=this.value.toUpperCase();">
                                             </div>
 
                                             <div class="col-md-12 mb-3">
@@ -61,19 +62,19 @@
                                             </div>
 
                                             <div class="col-md-12 mb-3">
-                                                <input type="number" class="form-control" id="phone" placeholder="TELEFONO*" name="phone"
+                                                <input type="number" class="form-control" id="telefono" placeholder="TELEFONO*" name="telefono"
                                                 onKeypress="if(event.charCode >= 48 && event.charCode <= 57){return true;}return false;"/>
                                             </div>
                                         </div>
             
                                         <div class="form-check">
-                                            <input class="form-check-input messageCheckbox" type="checkbox" id="check" name="terms">
+                                            <input class="form-check-input messageCheckbox" type="checkbox" id="check">
                                             <label class="form-check-label white" for="flexCheckDefault" >
                                                 <span class="white"> ACEPTO TERMINOS Y CONDICIONES </span>
                                             </label>
                                         </div>
                                         <br>
-                                        <button type="button" class="btn btn-tona" onclick="load()" value="Submit form"><b class="white">Enviar</b></button>
+                                        <button type="button" class="btn btn-tona" onclick="send()" value="Submit form"><b class="white">Enviar</b></button>
                                         <br>
 
 
@@ -121,7 +122,7 @@
                                         </div>
 
                                         <br>
-                                        <button type="button" class="btn btn-tona" onclick="next()" value="Submit form"><b class="white">Enviar</b></button>
+                                        <button type="button" class="btn btn-tona" onclick="send()" value="Submit form"><b class="white">Enviar</b></button>
                                         <br>
 
                                     </div>
@@ -142,11 +143,9 @@
         </div>        
     </div>
 </section>
-<script
-  src="https://code.jquery.com/jquery-3.6.0.slim.js"
-  integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY="
-  crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="index.js"></script>
 </body>
 </html>
