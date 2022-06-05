@@ -74,7 +74,7 @@
                                             </label>
                                         </div>
                                         <br>
-                                        <button type="button" class="btn btn-tona" onclick="send()" value="Submit form"><b class="white">Enviar</b></button>
+                                        <button type="button" class="btn btn-tona" onclick="validate()" value="Submit form"><b class="white">Enviar</b></button>
                                         <br>
 
 
@@ -116,9 +116,10 @@
                                                 <span class="change-image">Choose different image</span>
                                             </div>
                                         </div>
+                                        <p id="error"></p>
 
                                         <div class="mb-3">
-                                            <textarea class="form-control" placeholder="Comentario" rows="3"></textarea>
+                                            <textarea class="form-control" id="comentario" placeholder="Comentario" rows="3"></textarea>
                                         </div>
 
                                         <br>
