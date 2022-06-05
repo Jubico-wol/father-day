@@ -92,7 +92,7 @@
 
             <div class="container"  id="picture">
                 <div class="row">
-                    <div class="flex">
+                    <div class="flex"> 
                         
                         <div class="col-md-3"></div>
                         <div class="col-md-6 center">
