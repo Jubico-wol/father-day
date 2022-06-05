@@ -15,7 +15,7 @@ $pdo = require 'conf.php';
 require './functions/privateFunctions.php';
 try {
 
-    if(isset($_POST['nombre']) && isset($_POST['apellido']) && isset($_POST['email']) && isset($_POST['cui'])  && isset($_POST['telefono']) && isset($_POST['terms'])){
+    if(isset($_POST['nombre']) && isset($_POST['apellido']) && isset($_POST['email']) && isset($_POST['cui'])  && isset($_POST['telefono'])){
         $ip_address = $_SERVER['REMOTE_ADDR'];
         if(isset($_FILES['fileToUpload']['type'])){
             $errors = array();
@@ -34,7 +34,7 @@ try {
                         "msg" => "El archivo no es una imagen."
                     );
                     echo json_encode($response);
-                    return;   
+                    return;    
                 }
             }
 
@@ -48,7 +48,7 @@ try {
                 return;
             }
            
-            $telefono = cleanInt($_POST['telefono']);
+            $telefono = intval(cleanInt($_POST['telefono']));
             $cui = clean($_POST['cui']);
             if(strlen($cui) < 14){
                 $response = array(
@@ -78,7 +78,7 @@ try {
                     $name = $carpeta.$id_foto.".".$imageFileType;
                     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $name)) {
                         $file_name = $id_foto.".".$imageFileType;
-                        $query = "INSERT INTO usuarios_father_day SET nombre=:nombre, apellido=:apellido, cui=:cui, email=:email, telefono=:telefono, fecha_registro=now(), ip_address=:ip,estado=1,file=:file ;";
+                        $query = "INSERT INTO usuarios_father_day SET nombre=:nombre, apellido=:apellido, cui=:cui, email=:email, telefono=:telefono, fecha_registro=now(), ip_address=:ip,estado=1,url=:url ;";
                         $stmt = $dbhost->prepare($query);
                         $stmt->bindParam(':nombre', $nombre);
                         $stmt->bindParam(':apellido', $apellido);
@@ -86,7 +86,7 @@ try {
                         $stmt->bindParam(':email', $email);
                         $stmt->bindParam(':telefono', $telefono);
                         $stmt->bindParam(':ip', $ip_address);
-                        $stmt->bindParam(':file', $file_name);
+                        $stmt->bindParam(':url', $file_name);
                         if($stmt->execute()){ 
                             
                             $mail->Host = 'smtp.gmail.com';
@@ -139,10 +139,20 @@ try {
         }
 
        
-    }else{  
+    }else{ 
+        $data = array(
+            'nombre'=>isset($_POST['nombre']), 
+            'apellido'=>isset($_POST['apellido']),
+            'email'=>isset($_POST['email']),
+            'cui'=>isset($_POST['cui']),
+            'telefono'=>isset($_POST['telefono']),
+            'terms'=>isset($_POST['terms'])
+        );
+
         $response = array(
             "status" => 400,
-            "msg" => "Algunos datos vienen vacios"
+            "msg" => "Algunos datos vienen vacios",
+            "data"=> $data
         );
     }
 

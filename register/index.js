@@ -1,4 +1,3 @@
-
 // image function
 $('#imageInput').on('change', function() {
     $input = $(this);
@@ -8,7 +7,7 @@ $('#imageInput').on('change', function() {
         $('.image-preview').attr('src', data.target.result);
         }
         fileReader.readAsDataURL($input.prop('files')[0]);
-        console.log($input.prop('files')[0])
+        //console.log($input.prop('files')[0])
         $('.image-button').css('display', 'none');
         $('.image-preview').css('display', 'block');
         $('.change-image').css('display', 'block');
@@ -26,13 +25,10 @@ $('.change-image').on('click', function() {
 });
 
 
-
-
 function finish(){
     var url = "/tona-father/participating/"; 
     window.location = url; 
 }
-
 
 
 $("#picture").hide();  
@@ -43,7 +39,6 @@ $("#picture").hide();
 
 
 
-
 function send(){
 
     var name        = document.getElementById('nombre').value;
@@ -51,25 +46,23 @@ function send(){
     var cui         = document.getElementById('cui').value;
     var email       = document.getElementById('email').value;
     var phone       = document.getElementById('telefono').value;
-    let check       = document.getElementById('check');
-    let _check   = check.checked;
+    let _check = true;
     var comment      = document.getElementById('comentario').value;
-    var photo      = document.getElementById('imageInput').value;
+    var photo      = document.getElementById('imageInput');
+    let file =       photo.files[0];
+    let formData = new FormData();
+    formData.append('nombre',name);
+    formData.append('apellido',secondName);
+    formData.append('cui',cui);
+    formData.append('email',email);
+    formData.append('telefono',phone);
+    formData.append('check',_check);
+    formData.append('fileToUpload',file);
 
-    console.log(comment, photo);
-  
-    var obj ={
-        "nombre": name,
-        "apellido": secondName,
-        "cui": cui, 
-        "email": email,
-        "telefono": phone,
-        "terms": _check,
-        "fileToUpload": "sdfjkljlk.jpg"
-    }
-
-    
-    console.log(obj);
+    // Display the values
+for (var value of formData.values()) {
+    console.log(value);
+ }
 
     if(comment != "" && photo != ""){
         
@@ -77,18 +70,15 @@ function send(){
         $.ajax({
             url: '../uploadFiles.php',
             type: 'POST',
-            data: {
-                "nombre": name,
-                "apellido": secondName,
-                "cui": cui, 
-                "email": email,
-                "telefono": phone,
-                "terms": _check,
-                "fileToUpload": "sdfjkljlk.jpg"
-            },
+            data: formData,
+            contentType: false,       // The content type used when sending data to the server.
+            cache: false,             // To unable request pages to be cached
+            processData:false, 
             datatype: 'json',
-            success: function (data) { /*successFunction(data);*/ Swal.fire(data); },
-            error: function (jqXHR, textStatus, errorThrown) { errorFunction(); }
+            success: function(response){   // A function to be called if request succeeds
+                console.log(response);
+                                
+            }
         });
     
 
