@@ -8,7 +8,7 @@ $('#imageInput').on('change', function() {
         $('.image-preview').attr('src', data.target.result);
         }
         fileReader.readAsDataURL($input.prop('files')[0].type);
-        file = $input.prop('files')[0];
+      
         console.log($input.prop('files')[0])
         $('.image-button').css('display', 'none');
         $('.image-preview').css('display', 'block');
@@ -55,8 +55,7 @@ function send(){
     let check       = document.getElementById('check');
     let _check   = check.checked;
 
-    console.log(file);
-
+  
     var obj ={
         "nombre": name,
         "apellido": secondName,
