@@ -57,7 +57,7 @@ try {
                 );
             }else{
                 $dbhost = new PDO($dsn, $username, $password, $options);
-            $query = "SELECT id FROM usuarios_father_day WHERE cui = :cui AND email = :email;";
+            $query = "SELECT id FROM usuarios_father_day WHERE cui = :cui OR email = :email;";
             $stmt = $dbhost->prepare($query);
             $stmt->bindParam(':cui', $cui);
             $stmt->bindParam(':email', $_POST["email"]);
@@ -78,7 +78,7 @@ try {
                     $name = $carpeta.$id_foto.".".$imageFileType;
                     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $name)) {
                         $file_name = $id_foto.".".$imageFileType;
-                        $query = "INSERT INTO usuarios_father_day SET nombre=:nombre, apellido=:apellido, cui=:cui, email=:email, telefono=:telefono, fecha_registro=now(), ip_address=:ip,estado=1,url=:url ;";
+                        $query = "INSERT INTO usuarios_father_day SET nombre=:nombre, apellido=:apellido, cui=:cui, email=:email, telefono=:telefono, fecha_registro=now(), ip_address=:ip,estado=1,url=:url,comentario=:comentario  ;";
                         $stmt = $dbhost->prepare($query);
                         $stmt->bindParam(':nombre', $nombre);
                         $stmt->bindParam(':apellido', $apellido);
@@ -87,6 +87,7 @@ try {
                         $stmt->bindParam(':telefono', $telefono);
                         $stmt->bindParam(':ip', $ip_address);
                         $stmt->bindParam(':url', $file_name);
+                        $stmt->bindParam(':comentario', $_POST['comentario']);
                         if($stmt->execute()){ 
                             
                             $mail->Host = 'smtp.gmail.com';
@@ -146,7 +147,8 @@ try {
             'email'=>isset($_POST['email']),
             'cui'=>isset($_POST['cui']),
             'telefono'=>isset($_POST['telefono']),
-            'terms'=>isset($_POST['terms'])
+            'terms'=>isset($_POST['terms']),
+            'terms'=>isset($_POST['comentario'])
         );
 
         $response = array(

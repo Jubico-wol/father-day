@@ -48,9 +48,10 @@ function send(){
     var phone       = document.getElementById('telefono').value;
     let _check      = true;
     var comment     = document.getElementById('comentario').value;
+    let blobComment = new Blob([comment], { type: "text/xml"});
     var photo       = document.getElementById('imageInput');
     let file        = photo.files[0];
-
+    console.log(comment);
     let formData = new FormData();
     formData.append('nombre',name);
     formData.append('apellido',secondName);
@@ -59,6 +60,7 @@ function send(){
     formData.append('telefono',phone);
     formData.append('check',_check);
     formData.append('fileToUpload',file);
+    formData.append('comentario',blobComment);
 
     if(comment != "" && photo != ""){
         
