@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +7,6 @@
     <title>Document</title>
     <link href="../styles.css" rel="stylesheet">
     <link href="index.css" rel="stylesheet">
-    <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -58,7 +55,8 @@
 
                                             <div class="col-md-12 mb-3">
                                                 <input type="text" class="form-control" id="cui" name="cui" placeholder="No. IDENTIFICACION*" onkeyup="javascript:this.value=this.value.toUpperCase();"
-                                                onKeypress="if(event.charCode >= 48 && event.charCode <= 57 || event.charCode >= 97 && event.charCode <= 122){return true;}return false;"/>
+                                                onKeypress="if(event.charCode >= 48 && event.charCode <= 57 || event.charCode >= 97 && event.charCode <= 122){return true;}return false;"
+                                                minlength="14" maxlength="14"/>
                                             </div>
 
                                             <div class="col-md-12 mb-3">
@@ -76,9 +74,6 @@
                                         <br>
                                         <button type="button" class="btn btn-tona" onclick="validate()" value="Submit form"><b class="white">Enviar</b></button>
                                         <br>
-
-
-                                       
 
                                     </div>
                                 </form>
@@ -106,7 +101,6 @@
                                     <div class="center"> 
                                         
                                         <div class="mb-3">
-                                            <!-- <input type="file" class="form-control" placeholder="Subir foto"> -->
                                             <div class="image-input">
                                                <div class="img-box">
                                                 <input type="file" accept="image/*" id="imageInput" name="fileToUpload">

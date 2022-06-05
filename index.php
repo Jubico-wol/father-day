@@ -60,7 +60,7 @@
 
 <script>
    function load(){
-    var url = "/tona-father/register/"; 
+    var url = "/father-day/register/"; 
     window.location = url; 
    }
 </script>
