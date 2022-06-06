@@ -119,7 +119,7 @@ function send(){
         if( comment == ""){document.getElementById('comentario').style.border = "3px solid red";}
         else{document.getElementById('comentario').style.border = "1px solid #ced4da";} 
 
-        if( file == undefined){Swal.fire("Debes subir una fotografia con tu papá.");}
+        if( file == undefined){Swal.fire("Debes elegir una fotografía.");}
        
     }  
     
@@ -143,7 +143,7 @@ function validate(){
         if(check.checked == true){
             next();
         }else{
-            Swal.fire("Debes aceptar nuestros terminos y condiciones");
+            Swal.fire("Debes aceptar nuestros términos y condiciones");
         }  
 
     }else{
@@ -155,9 +155,14 @@ function validate(){
         else{document.getElementById('apellido').style.border = "1px solid #ced4da";} 
 
         if( cui == ""){document.getElementById('cui').style.border = "3px solid red";}
-        else{document.getElementById('cui').style.border = "1px solid #ced4da";} 
+        else if (_cui < 14){
+            Swal.fire("cui debe tener 14 dígitos.");
+        } 
+        else{
+            document.getElementById('cui').style.border = "1px solid #ced4da";
+        }
 
-        if( _cui < 14 ){Swal.fire("cui debe tener 14 digitos.");}
+
        
         if(mail != null){document.getElementById('email').style.border = "1px solid #ced4da";}
         else{document.getElementById('email').style.border = "3px solid red";} 

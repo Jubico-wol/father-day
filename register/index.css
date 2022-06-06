@@ -12,6 +12,9 @@ form{ padding: 15px;}
     z-index: 1;
 }
 h3{ font-weight: 700;}
+#error{
+    color: red;
+}
 .footer{padding: inherit; z-index: 0;}
 .footer img {
     width: 100%;
@@ -58,12 +61,11 @@ input:-internal-autofill-selected{
     background: green;
     width: 100%;
     height: 200px;
-   
 }
 	
 .image-preview{ 
     width: 100%;
-    max-width: 160px;
+    /* max-width: 160px; */
     text-align: center;
     margin: 0 auto;
     height: 100%;

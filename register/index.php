@@ -51,17 +51,18 @@
                                             </div>
 
                                             <div class="col-md-12 mb-3">
-                                                <input type="text" class="form-control" id="email" placeholder="CORREO ELECTRONICO*" name="email" onkeyup="javascript:this.value=this.value.toUpperCase();">
+                                                <input type="text" class="form-control" id="email" placeholder="CORREO ELECTRÓNICO*" name="email" onkeyup="javascript:this.value=this.value.toUpperCase();">
                                             </div>
 
                                             <div class="col-md-12 mb-3">
-                                                <input type="text" class="form-control" id="cui" name="cui" placeholder="No. IDENTIFICACION*" onkeyup="javascript:this.value=this.value.toUpperCase();"
+                                                <input type="text" class="form-control" id="cui" name="cui" placeholder="No. IDENTIFICACIÓN*" onkeyup="javascript:this.value=this.value.toUpperCase();"
                                                 onKeypress="if(event.charCode >= 48 && event.charCode <= 57 || event.charCode >= 97 && event.charCode <= 122){return true;}return false;"
                                                 minlength="14" maxlength="14"/>
+                                                <span id="error"></span>
                                             </div>
 
                                             <div class="col-md-12 mb-3">
-                                                <input type="number" class="form-control" id="telefono" placeholder="TELEFONO*" name="telefono"
+                                                <input type="number" class="form-control" id="telefono" placeholder="TELÉFONO*" name="telefono"
                                                 onKeypress="if(event.charCode >= 48 && event.charCode <= 57){return true;}return false;"/>
                                             </div>
                                         </div>
@@ -108,7 +109,7 @@
                                                     <label for="imageInput" class="image-button pointer"></label>
                                                 <img src="" class="image-preview">
                                                </div>
-                                                <span class="change-image">Choose different image</span>
+                                                <span class="change-image">Elegir otra fotografía</span>
                                             </div>
                                         </div>
                                         <p id="error"></p>
