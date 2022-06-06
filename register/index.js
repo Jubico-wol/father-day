@@ -40,7 +40,7 @@ function next(){
 
 
 function send(){
-    var response = grecaptcha.getResponse();
+    var response    = grecaptcha.getResponse();
     var name        = document.getElementById('nombre').value;
     var secondName  = document.getElementById('apellido').value;
     var cui         = document.getElementById('cui').value;
@@ -62,7 +62,8 @@ function send(){
     formData.append('comentario',comment);
     formData.append('g-recaptcha-response',response);
 
-    if(comment != "" && photo != ""){
+    
+    if(comment != "" && file != undefined){
         
         $.ajax({
             url: '../uploadFiles.php',
@@ -74,7 +75,7 @@ function send(){
             datatype: 'json',
             success: function(response){  
                
-                console.log(response);
+            
                 var data = JSON.parse(response);
                 var status = data.status;
                 var message = data.msg;
@@ -101,12 +102,11 @@ function send(){
 
     }else{
 
-        if( photo == ""){document.getElementById('comentario').style.border = "3px solid red";}
+        if( comment == ""){document.getElementById('comentario').style.border = "3px solid red";}
         else{document.getElementById('comentario').style.border = "1px solid #ced4da";} 
 
-        if( comment == ""){document.getElementById('error').innerHTML="Debes subir una foto";}
-        else{document.getElementById('error').reset();} 
-
+        if( file == undefined){Swal.fire("Debes subir una fotografia con tu papá.");}
+       
     }  
     
 }
