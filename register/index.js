@@ -23,13 +23,11 @@ $('.change-image').on('click', function() {
     $('.image-button').css('display', 'block');
 });
 
-
 function finish(){
     var url = "/father-day/participating/"; 
     window.location = url; 
     document.getElementById("form").reset();
 }
-
 
 $("#picture").hide();  
 function next(){
@@ -62,7 +60,6 @@ function send(){
     formData.append('comentario',comment);
     formData.append('g-recaptcha-response',response);
 
-    
     if(comment != "" && file != undefined){
         document.getElementById('btn-register').setAttribute("disabled","disabled");
 
@@ -79,9 +76,7 @@ function send(){
                 processData:false, 
                 datatype: 'json',
                 success: function(response){  
-                 
-                    console.log(response)
-
+  
                     var data = JSON.parse(response);
                     var status = data.status;
                     var message = data.msg;
@@ -101,7 +96,6 @@ function send(){
                    }
     
                    if(status == 400){
-                    //    Swal.fire(message);
                     Swal.fire({                       
                         title: message,
                         icon: 'error',
@@ -113,19 +107,12 @@ function send(){
                         document.getElementById('btn-register').removeAttribute("disabled");
                         send_form = true;
                       });
-                    
                     }
     
                 }
             });
 
-
-
         }
-
-
-        
-    
 
     }else{
 
