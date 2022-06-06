@@ -18,7 +18,11 @@ try {
     if(isset($_POST['g-recaptcha-response'])){
         define("CLAVE_SECRETA", "6LdklEEgAAAAACKBMTzybuzhbyWAKE0rXt4s3cBi");
         if (!isset($_POST["g-recaptcha-response"]) || empty($_POST["g-recaptcha-response"])) {
-            exit("Debes completar el captcha");
+            $response = array(
+                "status" => 400,
+                "msg" => "Seleccione captcha"
+            );
+            echo json_encode($response);
         }
         $token = $_POST["g-recaptcha-response"];
         $verificado = verificarToken($token, CLAVE_SECRETA);
