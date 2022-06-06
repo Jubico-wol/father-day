@@ -67,6 +67,7 @@ function send(){
         document.getElementById('btn-register').setAttribute("disabled","disabled");
 
         if( send_form ){
+
             send_form = false;
 
             $.ajax({
@@ -78,7 +79,9 @@ function send(){
                 processData:false, 
                 datatype: 'json',
                 success: function(response){  
-                
+                 
+                    console.log(response)
+
                     var data = JSON.parse(response);
                     var status = data.status;
                     var message = data.msg;
@@ -97,7 +100,21 @@ function send(){
                       });
                    }
     
-                   if(status == 400){Swal.fire(message);}
+                   if(status == 400){
+                    //    Swal.fire(message);
+                    Swal.fire({                       
+                        title: message,
+                        icon: 'error',
+                        confirmButtonText:"Aceptar",
+                        showConfirmButton: true,
+                        allowOutsideClick: false,
+                        allowEscapeKey: false
+                        }).then((result)=>{
+                        document.getElementById('btn-register').removeAttribute("disabled");
+                        send_form = true;
+                      });
+                    
+                    }
     
                 }
             });
