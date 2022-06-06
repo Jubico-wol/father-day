@@ -40,27 +40,27 @@ function next(){
 
 
 function send(){
-
+    var response = grecaptcha.getResponse();
     var name        = document.getElementById('nombre').value;
     var secondName  = document.getElementById('apellido').value;
     var cui         = document.getElementById('cui').value;
     var email       = document.getElementById('email').value;
     var phone       = document.getElementById('telefono').value;
-    let _check      = true;
+    let _check      = document.getElementById('check').checked
     var comment     = document.getElementById('comentario').value;
-    let blobComment = new Blob([comment], { type: "text/xml"});
     var photo       = document.getElementById('imageInput');
     let file        = photo.files[0];
-    console.log(comment);
+    
     let formData = new FormData();
     formData.append('nombre',name);
     formData.append('apellido',secondName);
     formData.append('cui',cui);
     formData.append('email',email);
     formData.append('telefono',phone);
-    formData.append('check',_check);
+    formData.append('terms',_check);
     formData.append('fileToUpload',file);
-    formData.append('comentario',blobComment);
+    formData.append('comentario',comment);
+    formData.append('g-recaptcha-response',response);
 
     if(comment != "" && photo != ""){
         
@@ -68,17 +68,16 @@ function send(){
             url: '../uploadFiles.php',
             type: 'POST',
             data: formData,
-            contentType: false,       // The content type used when sending data to the server.
-            cache: false,             // To unable request pages to be cached
+            contentType: false,       
+            cache: false,             
             processData:false, 
             datatype: 'json',
-            success: function(response){   // A function to be called if request succeeds
+            success: function(response){  
                
                 console.log(response);
                 var data = JSON.parse(response);
                 var status = data.status;
-                var message = data.msg
-               console.log(message);    
+                var message = data.msg;
 
                if(status == 400){Swal.fire(message);}
 

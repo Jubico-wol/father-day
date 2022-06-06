@@ -10,6 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
 <section class="bg">
@@ -115,7 +116,10 @@
                                         <div class="mb-3">
                                             <textarea class="form-control" id="comentario" placeholder="Comentario" rows="3"></textarea>
                                         </div>
-
+                                        <div class="mb-3" style="text-align: -webkit-center;">
+                                            <div class="g-recaptcha" data-sitekey="6LdklEEgAAAAAHBYdMUJ2AkSnBYPA0k55isdsN6E"></div>
+                                        </div>
+                                       
                                         <br>
                                         <button type="button" class="btn btn-tona" onclick="send()" value="Submit form"><b class="white">Enviar</b></button>
                                         <br>
