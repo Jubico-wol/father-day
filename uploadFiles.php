@@ -157,7 +157,7 @@ try {
                 'cui'=>isset($_POST['cui']),
                 'telefono'=>isset($_POST['telefono']),
                 'terms'=>isset($_POST['terms']),
-                'terms'=>isset($_POST['comentario'])
+                'comentario'=>isset($_POST['comentario'])
             );
     
             $response = array(
