@@ -15,15 +15,9 @@ $mail->CharSet = 'UTF-8';
 $pdo = require 'conf.php';
 require './functions/privateFunctions.php';
 try {
-    if(isset($_POST['g-recaptcha-response'])){
+    if(!isset($_POST["g-recaptcha-response"]) || empty($_POST["g-recaptcha-response"])){
         define("CLAVE_SECRETA", "6LdklEEgAAAAACKBMTzybuzhbyWAKE0rXt4s3cBi");
-        if (!isset($_POST["g-recaptcha-response"]) || empty($_POST["g-recaptcha-response"])) {
-            $response = array(
-                "status" => 400,
-                "msg" => "Seleccione captcha"
-            );
-            echo json_encode($response);
-        }
+    
         $token = $_POST["g-recaptcha-response"];
         $verificado = verificarToken($token, CLAVE_SECRETA);
         if ($verificado) {
