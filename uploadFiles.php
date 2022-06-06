@@ -110,10 +110,9 @@ try {
                                 $mail->setFrom('support@wolvisor.com', 'Toña Light');
                                 $mail->addAddress($email);
                                 $mail->isHTML(true);
-                                $mail->Subject = 'Confirmación Toña Light';
+                                $mail->Subject = 'YA ESTAS PARTICIPANDO';
                                 $mail->Body  = "<div>
-                                                    <img src='./assets/diapadre.png'>
-                                                    <h3>No responder a este correo, si tienes un problema con tu formulario, contáctanos vía inbox <a href='https://www.facebook.com/SnacksYummies'>aquí</a></h3>
+                                                    <img src='https://cervezatona.com/dia-del-padre/assets/img/email.png'>
                                                 </div>";
     
                                 
