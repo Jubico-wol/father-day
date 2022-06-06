@@ -37,7 +37,7 @@ function next(){
     $("#picture").show();  // show
 }
 
-
+let send_form = true;
 
 function send(){
     var response    = grecaptcha.getResponse();
@@ -64,40 +64,50 @@ function send(){
 
     
     if(comment != "" && file != undefined){
+        document.getElementById('btn-register').setAttribute("disabled","disabled");
+
+        if( send_form ){
+            send_form = false;
+
+            $.ajax({
+                url: '../uploadFiles.php',
+                type: 'POST',
+                data: formData,
+                contentType: false,       
+                cache: false,             
+                processData:false, 
+                datatype: 'json',
+                success: function(response){  
+                
+                    var data = JSON.parse(response);
+                    var status = data.status;
+                    var message = data.msg;
+    
+                   if(status == 200){
+                    Swal.fire({
+                        title: data.msg,
+                        text: `Gracias por registrarte.`,
+                        icon: 'success',
+                        confirmButtonText:"Aceptar",
+                        showConfirmButton: true,
+                        allowOutsideClick: false,  
+                        allowEscapeKey: false
+                        }).then((result)=>{
+                            finish();
+                      });
+                   }
+    
+                   if(status == 400){Swal.fire(message);}
+    
+                }
+            });
+
+
+
+        }
+
+
         
-        $.ajax({
-            url: '../uploadFiles.php',
-            type: 'POST',
-            data: formData,
-            contentType: false,       
-            cache: false,             
-            processData:false, 
-            datatype: 'json',
-            success: function(response){  
-               
-            
-                var data = JSON.parse(response);
-                var status = data.status;
-                var message = data.msg;
-
-               if(status == 400){Swal.fire(message);}
-
-               if(status == 200){
-                Swal.fire({
-                    title: data.msg,
-                    text: `Gracias por registrarte.`,
-                    icon: 'success',
-                    confirmButtonText:"Aceptar",
-                    showConfirmButton: true,
-                    allowOutsideClick: false,  
-                    allowEscapeKey: false
-                    }).then((result)=>{
-                        finish();
-                  });
-               }
-               
-            }
-        });
     
 
     }else{

@@ -121,7 +121,7 @@
                                         </div>
                                        
                                         <br>
-                                        <button type="button" class="btn btn-tona" onclick="send()" value="Submit form"><b class="white">Enviar</b></button>
+                                        <button type="button" id="btn-register" class="btn btn-tona" onclick="send()" value="Submit form"><b class="white">Enviar</b></button>
                                         <br>
 
                                     </div>

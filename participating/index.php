@@ -55,7 +55,7 @@
 
             <script>
                 function goTo(){
-                    var url = "/tona-father/"; 
+                    var url = "/father-day/"; 
                     window.location = url; 
                 }
             </script>
