@@ -76,6 +76,7 @@ function send(){
                 processData:false, 
                 datatype: 'json',
                 success: function(response){  
+                    console.log(response);
                     var data = JSON.parse(response);
                     var status = data.status;
                     var message = data.msg;
